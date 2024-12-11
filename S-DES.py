@@ -10,7 +10,6 @@ class SDES:
     def __init__(self, message, key):
         self.message = message
         self.key = self.Str2List(key)
-        self.cipher = None
         self.k1 = None
         self.k2 = None
 
