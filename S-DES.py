@@ -85,12 +85,18 @@ class SDES:
     def Cipher(self):
         '''Cifra mensagem'''
         self.message = self.Str2List(self.message)
-
+        
+        print(f'mensagem:       {self.List2Str(self.message)}')
         self.message = self.PN(self.message, self.IPi)
+        print(f'PI:             {self.List2Str(self.message)}')
         self.message = self.Feistel(self.k1)
+        print(f'Feistel 1:      {self.List2Str(self.message)}')
         self.message = self.SW(self.message)
+        print(f'SW:             {self.List2Str(self.message)}')
         self.message = self.Feistel(self.k2)
+        print(f'Feistel 2:      {self.List2Str(self.message)}')
         self.message = self.PN(self.message, self.IPf)
+        print(f'PI^-1:          {self.List2Str(self.message)}')
 
         self.message = self.List2Str(self.message)
 
@@ -113,7 +119,6 @@ if __name__ == '__main__':
     M = '11010111'
 
     sdes = SDES(M, KEY)
-    print("Mensagem:                    ", M)
     sdes.Cipher()
     print("Mensagem criptografada:      ", sdes.message)
     sdes.DCipher()
