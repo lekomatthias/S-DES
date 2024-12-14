@@ -120,6 +120,6 @@ if __name__ == '__main__':
 
     sdes = SDES(M, KEY)
     sdes.Cipher()
-    print("Mensagem criptografada:      ", sdes.message)
+    print(f'Mensagem criptografada:      {sdes.message}')
     sdes.DCipher()
-    print("Mensagem descriptografada:   ", sdes.message)
+    print(f'Mensagem descriptografada:   {sdes.message}')
